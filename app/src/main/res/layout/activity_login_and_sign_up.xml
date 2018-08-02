@@ -99,58 +99,80 @@
 
         <Button
             android:id="@+id/page_1"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="8dp"
             android:background="@color/colorAccent"
-            android:text="Page 1"
+            android:text="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/page_2"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:background="@color/colorAccent"
-            android:text="Page 2"
+            android:text="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/page_1" />
 
         <Button
             android:id="@+id/page_3"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:background="@color/colorAccent"
-            android:text="Page 3"
+            android:text="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/page_2" />
 
         <Button
             android:id="@+id/page_4"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:background="@color/colorAccent"
-            android:text="Page 4"
+            android:text="4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/page_3" />
 
         <Button
             android:id="@+id/page_5"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="76dp"
-            android:layout_marginEnd="98dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
             android:background="@color/colorAccent"
-            android:text="Page 5"
+            android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/page_4" />
+
+        <Button
+            android:id="@+id/page_6"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorAccent"
+            android:text="6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/page_5" />
+
+        <Button
+            android:id="@+id/page_7"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorAccent"
+            android:text="7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/page_6" />
 
     </android.support.constraint.ConstraintLayout>
 

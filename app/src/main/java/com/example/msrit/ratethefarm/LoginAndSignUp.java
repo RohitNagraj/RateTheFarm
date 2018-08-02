@@ -9,7 +9,7 @@ import android.widget.Button;
 public class LoginAndSignUp extends AppCompatActivity {
 
     // Remove when project is done
-    private Button mPage1, mPage2, mPage3, mPage4, mPage5;
+    private Button mPage1, mPage2, mPage3, mPage4, mPage5, mPage6, mPage7;
 
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,8 @@ public class LoginAndSignUp extends AppCompatActivity {
         mPage3 = findViewById(R.id.page_3);
         mPage4 = findViewById(R.id.page_4);
         mPage5 = findViewById(R.id.page_5);
+        mPage6 = findViewById(R.id.page_6);
+        mPage7 = findViewById(R.id.page_7);
 
         mPage1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,19 +32,20 @@ public class LoginAndSignUp extends AppCompatActivity {
             }
         });
 
-        mPage2.setOnClickListener(new View.OnClickListener() {
+       /* mPage2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), GetFarmerDetails.class);
+                Intent myIntent = new Intent(v.getContext(), NeeharGetFarmerDetails.class);
                 startActivity(myIntent);
             }
         });
+        */
 
         mPage3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent myIntent = new Intent(v.getContext(), FarmersList.class);
+                Intent myIntent = new Intent(v.getContext(), NeeharGetFarmerDetails.class);
                 startActivity(myIntent);
             }
         });
@@ -50,7 +53,7 @@ public class LoginAndSignUp extends AppCompatActivity {
         mPage4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), ShowFarmerDetails.class);
+                Intent myIntent = new Intent(v.getContext(), ShubhangGetFarmerDetails.class);
                 startActivity(myIntent);
             }
         });
@@ -58,10 +61,27 @@ public class LoginAndSignUp extends AppCompatActivity {
         mPage5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), FarmersList.class);
+                startActivity(myIntent);
+            }
+        });
+
+        mPage6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), ShowFarmerDetails.class);
+                startActivity(myIntent);
+            }
+        });
+
+        mPage7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent myIntent = new Intent(v.getContext(), TestPushData.class);
                 startActivity(myIntent);
             }
         });
+
 
     }
 }

@@ -2,7 +2,6 @@ package com.example.msrit.ratethefarm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -10,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class Register extends AppCompatActivity {
+public class NeeharGetFarmerDetails extends AppCompatActivity {
     EditText mText1;
     EditText mText2;
     EditText mText3;
@@ -64,7 +63,7 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_neehar_get_farmer_details);
 
         mText1 = (EditText) findViewById(R.id.name);
         String name = mText1.getText().toString();
@@ -153,7 +152,7 @@ public class Register extends AppCompatActivity {
         mCheck8 = (CheckBox) findViewById(R.id.sale_local);
         mCheck9 = (CheckBox) findViewById(R.id.sale_apmc);
 
-       mButton1 = (Button) findViewById(R.id.submit);
+        mButton1 = (Button) findViewById(R.id.submit);
 
     }
 }

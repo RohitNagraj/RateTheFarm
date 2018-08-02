@@ -18,7 +18,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_farmer_details);
+        setContentView(R.layout.shubhang_show_farmer_details);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Users").child(MyAdapter.mClickID).addValueEventListener(new ValueEventListener() {
@@ -34,8 +34,5 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }
