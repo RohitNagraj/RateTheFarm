@@ -33,7 +33,12 @@
             android:name=".ShubhangGetFarmerDetails"
             android:label="Shubhang Fetch" />
         <activity android:name=".TestPushData" />
-        <activity android:name=".SignUp"></activity>
+
+        <activity android:name=".SignUp"
+            android:theme="@style/OpeningScreenTheme">
+            android:label="Sign Up">
+
+        </activity>
     </application>
 
 </manifest>
