@@ -4,16 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".NeeharGetFarmerDetails">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="511dp"
         android:layout_marginStart="8dp"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/personal_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="PERSONAL DETAILS"
+            android:textStyle="bold"
+            android:textColor="@color/cardview_dark_background"
+            android:gravity="center"
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/name"
@@ -27,6 +42,8 @@
             android:inputType="textPersonName"
             android:selectAllOnFocus="false"
             android:singleLine="false"
+            android:textColorHint="@android:color/black"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +51,7 @@
 
         <EditText
             android:id="@+id/village"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -52,7 +69,7 @@
 
         <EditText
             android:id="@+id/hobli"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -70,7 +87,7 @@
 
         <EditText
             android:id="@+id/taluq"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -88,7 +105,7 @@
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -106,14 +123,18 @@
 
         <TextView
             android:id="@+id/working"
-            android:layout_width="227dp"
+            android:layout_width="368dp"
             android:layout_height="55dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:text="Total Working"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Total Labour"
+            android:textColor="@color/cardview_dark_background"
             android:textSize="30dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.032"
@@ -159,18 +180,6 @@
             app:layout_constraintStart_toEndOf="@+id/working"
             app:layout_constraintTop_toBottomOf="@+id/male"
             app:layout_constraintVertical_bias="0.060000002" />
-
-        <EditText
-            android:id="@+id/aadhaar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:ems="10"
-            android:hint="Aadhaar Number"
-            android:inputType="number" />
 
         <TextView
             android:id="@+id/land_details"
@@ -230,9 +239,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="ANIMALS"
-            android:textSize="30dp"
-            android:layout_weight="1" />
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/cow"
@@ -326,9 +335,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="SERICULTURE"
-            android:textSize="30dp"
-            android:layout_weight="1" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/extent_mulberryy"
@@ -338,9 +347,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="Extent Mulberry Cultivation"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/extent"
@@ -362,9 +371,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="Ready for Selling"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <RadioGroup
             android:id="@+id/yn_mulberry"
@@ -401,9 +410,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="MACHINERIES"
-            android:textSize="30dp"
-            android:layout_weight="1" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/total_machines"
@@ -413,9 +422,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="MACHINES OWNED "
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <CheckBox
             android:id="@+id/tractor"
@@ -495,9 +504,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="CROP DETAILS"
-            android:textSize="30dp"
-            android:layout_weight="1" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/crop_name_view"
@@ -507,9 +516,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="CROP NAME"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/crop_name"
@@ -530,9 +539,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="EXTENT"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/crop_extent"
@@ -553,9 +562,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="EXPECTED PRODUCTION IN kgs"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/crop_production"
@@ -576,9 +585,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="MISCELLANEOUS"
-            android:textSize="30dp"
-            android:layout_weight="1" />
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/online_sale_view"
@@ -588,9 +597,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="WILLING TO SELL ONLINE?"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <RadioGroup
             android:id="@+id/yn_online"
@@ -627,9 +636,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="OPEN TO SCIENTIFIC SUGGESTIONS?"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <RadioGroup
             android:id="@+id/yn_scientific"
@@ -667,9 +676,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="OWN A NURSERY?"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <RadioGroup
             android:id="@+id/yn_nursery"
@@ -706,9 +715,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_weight="1"
             android:text="SALES?"
-            android:textSize="25dp"
-            android:layout_weight="1" />
+            android:textSize="25dp" />
 
         <CheckBox
             android:id="@+id/sale_local"
@@ -735,7 +744,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SUBMIT"
-            android:textSize="35dp"/>
+            android:textSize="35dp" />
 
     </LinearLayout>
 </ScrollView>
