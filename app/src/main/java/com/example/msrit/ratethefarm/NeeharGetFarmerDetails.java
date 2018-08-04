@@ -2,6 +2,7 @@ package com.example.msrit.ratethefarm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -10,149 +11,144 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class NeeharGetFarmerDetails extends AppCompatActivity {
-    EditText mText1;
-    EditText mText2;
-    EditText mText3;
-    EditText mText4;
-    EditText mText5;
+    EditText mname;
+    EditText mvillage;
+    EditText mhobli;
+    EditText mtaluq;
+    EditText mage;
 
-    TextView mView1;
-    EditText mText6;
-    EditText mText7;
+    TextView labour_view;
+    EditText mmale;
+    EditText mfemale;
 
-    TextView mView2;
-    EditText mText8;
+    TextView land_view;
+    EditText mtotal_land;
 
-    RadioGroup rg;
-    RadioButton mRB1;
-    RadioButton mRB2;
+    RadioGroup rg_landtype;
+    RadioButton rbIrrigated;
+    RadioButton rbRainfed;
 
-    TextView mView3;
-    EditText mText9,mText10,mText11,mText12,mText13,mText14,mText15;
+    TextView animal_view;
+    EditText mcow,mbuffalo,mcock,mhen,msheep,mgoat,mothers;
 
-    TextView mView4,mView5;
-    EditText mText16;
+    TextView sericulture_view,extent_view;
+    EditText mextent;
 
-    RadioGroup rg2;
-    RadioButton mRB3;
-    RadioButton mRB4;
+    RadioGroup rg_mulberry;
+    RadioButton rb_yes_mul;
+    RadioButton rb_no_mul;
 
-    TextView mView6,mView7;
-    CheckBox mCheck1,mCheck2,mCheck3,mCheck4,mCheck5,mCheck6,mCheck7;
+    TextView machinery_view, owned_view;
+    CheckBox ctractor,cpower_tiller,cplougher,crotomator,cbullock,csprayer,csprinkler;
 
-    TextView mView8,mView9,mView10,mView11,mView12;
-    EditText mText17,mText18,mText19;
+    TextView crop_view,name_view,cropextent_view,production_view,misc_view,online_view,nursery_view,sales_view;
+    EditText mcrop_name,mcrop_extent,mcrop_prod;
 
-    TextView mView13,mView14,mView15,mView16,mView17;
-    RadioGroup rg3;
-    RadioButton mRB5;
-    RadioButton mRB6;
+    RadioGroup rg_online;
+    RadioButton rb_yes_online;
+    RadioButton rb_no_online;
 
-    RadioGroup rg4;
-    RadioButton mRB7;
-    RadioButton mRB8;
+    RadioGroup rg_scientific;
+    RadioButton rb_yes_sci;
+    RadioButton rb_no_sci;
 
-    RadioGroup rg5;
-    RadioButton mRB9;
-    RadioButton mRB10;
+    RadioGroup rg_nursery;
+    RadioButton rb_yes_nursery;
+    RadioButton rb_no_nursery;
 
-    CheckBox mCheck8,mCheck9;
+    CheckBox clocal,capmc;
 
-    Button mButton1;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neehar_get_farmer_details);
 
-        mText1 = (EditText) findViewById(R.id.name);
-        String name = mText1.getText().toString();
+        mname = (EditText) findViewById(R.id.name);
+        mvillage = (EditText) findViewById(R.id.village);
+        mhobli = (EditText) findViewById(R.id.hobli);
+        mtaluq = (EditText) findViewById(R.id.taluq);
+        mage = (EditText) findViewById(R.id.age);
+        mmale = (EditText) findViewById(R.id.male);
+        mfemale = (EditText) findViewById(R.id.female);
 
-        mText2 = (EditText) findViewById(R.id.village);
-        String village = mText2.getText().toString();
+        mtotal_land = (EditText) findViewById(R.id.total_land);
+        rg_landtype = (RadioGroup) findViewById(R.id.i_or_r);
+        rbIrrigated = (RadioButton) findViewById(R.id.irrigated);
+        rbRainfed = (RadioButton) findViewById(R.id.rainfed);
 
-        mText3 = (EditText) findViewById(R.id.hobli);
-        String hobli = mText2.getText().toString();
+        mcow = (EditText) findViewById(R.id.cow);
+        mbuffalo = (EditText) findViewById(R.id.buffalo);
+        mcock = (EditText) findViewById(R.id.cock);
+        mhen = (EditText) findViewById(R.id.hen);
+        msheep = (EditText) findViewById(R.id.sheep);
+        mgoat = (EditText) findViewById(R.id.goat);
+        mothers = (EditText) findViewById(R.id.others);
+        mextent = (EditText) findViewById(R.id.extent);
 
-        mText4 = (EditText) findViewById(R.id.taluq);
-        String taluq = mText2.getText().toString();
+        rg_mulberry = (RadioGroup) findViewById(R.id.yn_mulberry);
+        rb_yes_mul = (RadioButton) findViewById(R.id.yes_mul);
+        rb_no_mul = (RadioButton) findViewById(R.id.no_mul);
 
-        mText5 = (EditText) findViewById(R.id.age);
-        String age = (mText5.getText().toString());
+        ctractor = (CheckBox) findViewById(R.id.tractor);
+        cpower_tiller = (CheckBox) findViewById(R.id.power_tiller);
+        cplougher = (CheckBox) findViewById(R.id.plougher);
+        crotomator = (CheckBox) findViewById(R.id.rotomator);
+        cbullock = (CheckBox) findViewById(R.id.bullock_cart);
+        csprayer = (CheckBox) findViewById(R.id.sprayer);
+        csprinkler = (CheckBox) findViewById(R.id.sprinkler);
 
-        mText6 = (EditText) findViewById(R.id.male);
-        String male = mText6.getText().toString();
+        mcrop_name = (EditText) findViewById(R.id.crop_name);
+        String  crop_name = mcrop_name.getText().toString();
 
-        mText7 = (EditText) findViewById(R.id.female);
-        String female = mText7.getText().toString();
+        mcrop_extent = (EditText) findViewById(R.id.crop_extent);
+        String  crop_extent = mcrop_extent.getText().toString();
 
-        mText8 = (EditText) findViewById(R.id.total_land);
-        String total_land = mText8.getText().toString();
-        rg = (RadioGroup) findViewById(R.id.i_or_r);
-        mRB1 = (RadioButton) findViewById(R.id.irrigated);
-        mRB2 = (RadioButton) findViewById(R.id.rainfed);
+        mcrop_prod = (EditText) findViewById(R.id.crop_production);
+        String  crop_production = mcrop_prod.getText().toString();
 
-        mText9 = (EditText) findViewById(R.id.cow);
-        String cows = mText9.getText().toString();
+        rg_online = (RadioGroup) findViewById(R.id.yn_online);
+        rb_yes_online = (RadioButton) findViewById(R.id.yes_online);
+        rb_no_online = (RadioButton) findViewById(R.id.no_online);
 
-        mText10 = (EditText) findViewById(R.id.buffalo);
-        String buffalo = mText10.getText().toString();
+        rg_scientific = (RadioGroup) findViewById(R.id.yn_scientific);
+        rb_yes_sci = (RadioButton) findViewById(R.id.yes_scientific);
+        rb_no_sci = (RadioButton) findViewById(R.id.no_scientific);
 
-        mText11 = (EditText) findViewById(R.id.cock);
-        String cock = mText11.getText().toString();
+        rg_nursery = (RadioGroup) findViewById(R.id.yn_nursery);
+        rb_yes_nursery = (RadioButton) findViewById(R.id.yes_nursery);
+        rb_no_nursery = (RadioButton) findViewById(R.id.no_nursery);
 
-        mText12 = (EditText) findViewById(R.id.hen);
-        String hen = mText12.getText().toString();
+        clocal = (CheckBox) findViewById(R.id.sale_local);
+        capmc = (CheckBox) findViewById(R.id.sale_apmc);
 
-        mText13 = (EditText) findViewById(R.id.sheep);
-        String sheep = mText13.getText().toString();
+        submit = (Button) findViewById(R.id.submit);
 
-        mText14 = (EditText) findViewById(R.id.goat);
-        String goat = mText14.getText().toString();
-
-        mText15 = (EditText) findViewById(R.id.others);
-        String others = mText15.getText().toString();
-
-        mText16 = (EditText) findViewById(R.id.extent);
-        String  extent = mText16.getText().toString();
-
-        rg2 = (RadioGroup) findViewById(R.id.yn_mulberry);
-        mRB3 = (RadioButton) findViewById(R.id.yes_mul);
-        mRB4 = (RadioButton) findViewById(R.id.no_mul);
-
-        mCheck1 = (CheckBox) findViewById(R.id.tractor);
-        mCheck2 = (CheckBox) findViewById(R.id.power_tiller);
-        mCheck3 = (CheckBox) findViewById(R.id.plougher);
-        mCheck4 = (CheckBox) findViewById(R.id.rotomator);
-        mCheck5 = (CheckBox) findViewById(R.id.bullock_cart);
-        mCheck6 = (CheckBox) findViewById(R.id.sprayer);
-        mCheck7 = (CheckBox) findViewById(R.id.sprinkler);
-
-        mText17 = (EditText) findViewById(R.id.crop_name);
-        String  crop_name = mText17.getText().toString();
-
-        mText18 = (EditText) findViewById(R.id.crop_extent);
-        String  crop_extent = mText18.getText().toString();
-
-        mText19 = (EditText) findViewById(R.id.crop_production);
-        String  crop_production = mText19.getText().toString();
-
-        rg3 = (RadioGroup) findViewById(R.id.yn_online);
-        mRB5 = (RadioButton) findViewById(R.id.yes_online);
-        mRB6 = (RadioButton) findViewById(R.id.no_online);
-
-        rg4 = (RadioGroup) findViewById(R.id.yn_scientific);
-        mRB7 = (RadioButton) findViewById(R.id.yes_scientific);
-        mRB8 = (RadioButton) findViewById(R.id.no_scientific);
-
-        rg = (RadioGroup) findViewById(R.id.yn_nursery);
-        mRB9 = (RadioButton) findViewById(R.id.yes_nursery);
-        mRB10 = (RadioButton) findViewById(R.id.no_nursery);
-
-        mCheck8 = (CheckBox) findViewById(R.id.sale_local);
-        mCheck9 = (CheckBox) findViewById(R.id.sale_apmc);
-
-        mButton1 = (Button) findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = mname.getText().toString();
+                String village = mvillage.getText().toString();
+                String hobli = mhobli.getText().toString();
+                String taluq = mtaluq.getText().toString();
+                int age = Integer.parseInt(mage.getText().toString());
+                int male = Integer.parseInt(mmale.getText().toString());
+                int female = Integer.parseInt(mfemale.getText().toString());
+                int total_land = Integer.parseInt(mtotal_land.getText().toString());
+                int cow = Integer.parseInt(mcow.getText().toString());
+                int buffalo = Integer.parseInt(mbuffalo.getText().toString());
+                int cock = Integer.parseInt(mcock.getText().toString());
+                int hen = Integer.parseInt(mhen.getText().toString());
+                int sheep = Integer.parseInt(msheep.getText().toString());
+                int goat = Integer.parseInt(mgoat.getText().toString());
+                int others = Integer.parseInt(mothers.getText().toString());
+                int extent = Integer.parseInt(mextent.getText().toString());
+                }
+        });
 
     }
+
+
+
 }
