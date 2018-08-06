@@ -525,7 +525,7 @@
             android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:text="CROP NAME"
-            android:textColor="@android:color/blackid/name"
+            android:textColor="@android:color/black"
             android:textSize="25dp" />
 
         <EditText
