@@ -71,4 +71,4 @@ public class FarmersList extends AppCompatActivity {
     }
 }
 
-//TODO add rating algorithm, add pushing backend, add pulling backend, page 4 front end, renaming page 2 attributes.
+//TODO add rating algorithm, add pulling backend, page 4 front end, fix notnull issues.

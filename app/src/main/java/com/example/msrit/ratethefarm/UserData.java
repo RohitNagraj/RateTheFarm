@@ -2,6 +2,8 @@ package com.example.msrit.ratethefarm;
 
 public class UserData {
 
+    private int UserID;
+
     private String Name;
     private String Village;
     private String Hobli;
@@ -44,6 +46,11 @@ public class UserData {
     private Boolean SalesLocal;
     private Boolean SalesAPMC;
 
+    //To be calculated
+    private int TotalAnimals;
+    private double YieldPerHectre;
+    private double Rating;
+
     public UserData() {
         Name = null;
         Village = null;
@@ -78,6 +85,9 @@ public class UserData {
         OwnsNursery = false;
         SalesLocal = false;
         SalesAPMC = false;
+        TotalAnimals = 0;
+        YieldPerHectre = 0.0;
+        Rating = 0.0;
     }
 
     public String getName() {
@@ -343,16 +353,38 @@ public class UserData {
     public void setSalesAPMC(Boolean salesAPMC) {
         SalesAPMC = salesAPMC;
     }
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
+
+    public int getTotalAnimals() {
+        return TotalAnimals;
+    }
+
+
+    public double getYieldPerHectre() {
+        return YieldPerHectre;
+    }
+
+
+    public double getRating() {
+        return Rating;
+    }
+
+    public void setCalculatedValues() {
+        // Rating =
+        //Enter Rating algorithm here.
+
+        TotalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
+
+        YieldPerHectre = CropYield / Land;
+
+    }
+
 }
-
-/*
- private int UserID;
-     private String Name;
-     private String Age;
-     private String Village;
-     private String Crop;
-     private String Land;
-     private String Animals;
-     private String Rating;
-
- */

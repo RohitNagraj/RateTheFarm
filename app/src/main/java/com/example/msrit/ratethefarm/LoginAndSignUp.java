@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginAndSignUp extends AppCompatActivity {
 
     // Remove when project is done
-    private Button mPage1, mPage2, mPage3, mPage4, mPage5, mPage6, mPage7;
+    private Button mPage1, mPage2, mPage3, mPage4, mPage5;
 
     private FirebaseAuth mAuth;
     private Button login;
@@ -42,7 +42,6 @@ public class LoginAndSignUp extends AppCompatActivity {
         mPage3 = findViewById(R.id.page_3);
         mPage4 = findViewById(R.id.page_4);
         mPage5 = findViewById(R.id.page_5);
-        mPage6 = findViewById(R.id.page_6);
 
         mPage1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +65,7 @@ public class LoginAndSignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent myIntent = new Intent(v.getContext(), NeeharGetFarmerDetails.class);
+                Intent myIntent = new Intent(v.getContext(), GetFarmerDetails.class);
                 startActivity(myIntent);
             }
         });
@@ -87,13 +86,6 @@ public class LoginAndSignUp extends AppCompatActivity {
             }
         });
 
-        mPage6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), TestPushData.class);
-                startActivity(myIntent);
-            }
-        });
 
 
 

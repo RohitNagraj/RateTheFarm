@@ -34,19 +34,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         final UserData listItem = UserItems.get(position);
 
         holder.mName.setText(listItem.getName());
-        holder.mAge.setText(listItem.getAge());
-        holder.mVillage.setText(listItem.getVillage());
-        holder.mCrop.setText(listItem.getCrop());
-        holder.mLand.setText(listItem.getLand());
-        holder.mAnimals.setText(listItem.getAnimals());
-        holder.mRating.setText(listItem.getRating());
+        holder.mAge.setText("Age : " + Integer.toString(listItem.getAge()));
+        holder.mVillage.setText("Village : " + listItem.getVillage());
+        holder.mCrop.setText("Crop : " + listItem.getCropName());
+        holder.mLand.setText("Total Land : " + Double.toString(listItem.getLand()));
+        holder.mAnimals.setText("Animals : " + Integer.toString(listItem.getTotalAnimals()));
+        holder.mRating.setText(Double.toString(listItem.getRating()));
 
         holder.mConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override

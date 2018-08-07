@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NeeharGetFarmerDetails">
+    tools:context=".GetFarmerDetails">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -624,7 +624,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="YES" />
+                android:text="Yes" />
 
             <RadioButton
                 android:id="@+id/online_no"
@@ -634,7 +634,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="NO" />
+                android:text="No" />
 
         </RadioGroup>
 
@@ -663,7 +663,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="YES" />
+                android:text="Yes" />
 
             <RadioButton
                 android:id="@+id/scientific_no"
@@ -673,7 +673,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="NO" />
+                android:text="No" />
 
 
         </RadioGroup>
@@ -703,7 +703,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="YES" />
+                android:text="Yes" />
 
             <RadioButton
                 android:id="@+id/nursery_no"
@@ -713,7 +713,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:text="NO" />
+                android:text="No" />
 
         </RadioGroup>
 
@@ -726,7 +726,6 @@
             android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:text="Mode of sales"
-            android:textColor="@android:string/autofill"
             android:textSize="25dp" />
 
         <CheckBox

@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUp extends AppCompatActivity {
+
+
     private FirebaseAuth mAuth;
     private Button login;
     private Button register;
@@ -28,16 +30,16 @@ public class SignUp extends AppCompatActivity {
     private EditText email;
     private ProgressDialog progressDialog;
 
-    // Remove when project is done
-    private Button mPage1, mPage2, mPage3, mPage4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,NeeharGetFarmerDetails.class));
+            startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,GetFarmerDetails.class));
         }
 
         progressDialog = new ProgressDialog(this);
@@ -47,7 +49,7 @@ public class SignUp extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        confirmPassword=findViewById(R.id.confirmpassword);
+        confirmPassword = findViewById(R.id.confirmpassword);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,44 +68,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        mPage1 = findViewById(R.id.page_1);
-        mPage2 = findViewById(R.id.page_2);
-        mPage3 = findViewById(R.id.page_3);
-        mPage4 = findViewById(R.id.page_4);
-
-        mPage1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent myIntent = new Intent(v.getContext(), com.example.msrit.ratethefarm.LoginAndSignUp.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), NeeharGetFarmerDetails.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent myIntent = new Intent(v.getContext(), FarmersList.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), ShowFarmerDetails.class);
-                startActivity(myIntent);
-            }
-        });
 
     }
     private void userLogIn(){
