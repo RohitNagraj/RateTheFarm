@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -107,94 +109,207 @@ public class GetFarmerDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 userData.setName(mName.getText().toString());
                 userData.setVillage(mVillage.getText().toString());
                 userData.setHobli(mHobli.getText().toString());
                 userData.setTaluq(mTaluq.getText().toString());
-                userData.setAge(Integer.parseInt(mAge.getText().toString()));
+
+                if (mAge.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mAge.getText().toString()));
+                }
 
 
-                userData.setMaleWorkers(Integer.parseInt(mMaleWorkers.getText().toString()));
-                userData.setFemaleWorkers(Integer.parseInt(mFemaleWorkers.getText().toString()));
+                if (mMaleWorkers.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mMaleWorkers.getText().toString()));
+                }
+
+                if (mFemaleWorkers.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mFemaleWorkers.getText().toString()));
+                }
 
 
-                userData.setLand(Double.parseDouble(mLandArea.getText().toString()));
+                if (mLandArea.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setLand(Double.parseDouble(mLandArea.getText().toString()));
+                }
+
+
                 int SelectedID = rgLandType.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(SelectedID);
-                userData.setIrrigatedOrRainfed(radioButton.getText().toString());
+                if (radioButton == null) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else
+                {
+                    userData.setIrrigatedOrRainfed(radioButton.getText().toString());
+                }
 
 
-                userData.setCow(Integer.parseInt(mCow.getText().toString()));
-                userData.setBuffalo(Integer.parseInt(mBuffalo.getText().toString()));
-                userData.setCock(Integer.parseInt(mCock.getText().toString()));
-                userData.setHen(Integer.parseInt(mHen.getText().toString()));
-                userData.setSheep(Integer.parseInt(mSheep.getText().toString()));
-                userData.setGoat(Integer.parseInt(mGoat.getText().toString()));
-                userData.setOtherAnimals(Integer.parseInt(mOtherAnimals.getText().toString()));
+
+                if (mCow.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mCow.getText().toString()));
+                }
+
+                if (mBuffalo.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mBuffalo.getText().toString()));
+                }
+
+                if (mCock.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mCock.getText().toString()));
+                }
+
+                if (mHen.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mHen.getText().toString()));
+                }
+
+                if (mSheep.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mSheep.getText().toString()));
+                }
+
+                if (mGoat.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mGoat.getText().toString()));
+                }
+
+                if (mOtherAnimals.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setAge(Integer.parseInt(mOtherAnimals.getText().toString()));
+                }
 
 
                 userData.setMulberryYield(Double.parseDouble(mMulberryYield.getText().toString()));
                 SelectedID = rgMulberry.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
-                String Value = radioButton.getText().toString();
-                if (Value.equals("Yes")) {
-                    userData.setSellMulberry(true);
-                } else {
-                    userData.setSellMulberry(false);
+                if (radioButton == null) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    String Value = radioButton.getText().toString();
+                    if (Value.equals("Yes")) {
+                        userData.setSellMulberry(true);
+                    } else {
+                        userData.setSellMulberry(false);
+                    }
                 }
 
-                if(cTractor.isChecked()){
+                if (cTractor.isChecked()) {
                     userData.setOwnsTractor(true);
                 }
-                if(cPowerTiller.isChecked()){
+                if (cPowerTiller.isChecked()) {
                     userData.setOwnsPowerTiller(true);
                 }
-                if(cPlougher.isChecked()){
+                if (cPlougher.isChecked()) {
                     userData.setOwnsPlougher(true);
                 }
-                if(cRotomator.isChecked()){
+                if (cRotomator.isChecked()) {
                     userData.setOwnsRotomator(true);
                 }
-                if(cBullock.isChecked()){
+                if (cBullock.isChecked()) {
                     userData.setOwnsBullockCart(true);
                 }
-                if(cSprayer.isChecked()){
+                if (cSprayer.isChecked()) {
                     userData.setOwnsSprayer(true);
                 }
-                if(cSprinkler.isChecked()){
+                if (cSprinkler.isChecked()) {
                     userData.setOwnsSprinkler(true);
                 }
 
 
                 userData.setCropName(mCrop.getText().toString());
-                userData.setCropArea(Double.parseDouble(mCropArea.getText().toString()));
-                userData.setCropYield(Double.parseDouble(mCropYield.getText().toString()));
+
+                if (mCropArea.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setCropArea(Double.parseDouble(mCropArea.getText().toString()));
+                }
+
+                if (mCropYield.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    userData.setCropArea(Double.parseDouble(mCropYield.getText().toString()));
+                }
 
                 SelectedID = rgOnlineSales.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
-                Value = radioButton.getText().toString();
-                if (Value.equals("Yes")) {
-                    userData.setOnlineSale(true);
-                } else {
-                    userData.setOnlineSale(false);
+                if (radioButton == null) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    String Value = radioButton.getText().toString();
+                    if (Value.equals("Yes")) {
+                        userData.setOnlineSale(true);
+                    } else {
+                        userData.setOnlineSale(false);
+                    }
                 }
 
                 SelectedID = rgScientificSuggestions.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
-                Value = radioButton.getText().toString();
-                if (Value.equals("Yes")) {
-                    userData.setScientificSuggestions(true);
-                } else {
-                    userData.setScientificSuggestions(false);
+                if (radioButton == null) {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                else {
+                    String Value = radioButton.getText().toString();
+                    if (Value.equals("Yes")) {
+                     userData.setScientificSuggestions(true);
+                    } else {
+                      userData.setScientificSuggestions(false);
+                    }
+                 }
 
                 SelectedID = rgNursery.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
-                Value = radioButton.getText().toString();
-                if (Value.equals("Yes")) {
-                    userData.setOwnsNursery(true);
-                } else {
-                    userData.setOwnsNursery(false);
+                if (radioButton == null)
+                {
+                    Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                else {
+                    String Value = radioButton.getText().toString();
+
+                    if (Value.equals("Yes")) {
+                        userData.setOwnsNursery(true);
+                    } else {
+                        userData.setOwnsNursery(false);
+                    }
                 }
 
                 if(cLocal.isChecked()){

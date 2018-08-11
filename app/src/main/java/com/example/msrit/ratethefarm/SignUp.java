@@ -11,6 +11,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +31,7 @@ public class SignUp extends AppCompatActivity {
     private EditText password;
     private EditText email;
     private ProgressDialog progressDialog;
+    public Boolean UserIsFarmer;
 
 
     @Override
@@ -114,14 +117,29 @@ public class SignUp extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             Toast.makeText(SignUp.this, "Woo-hoo! Successfully registered", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), LoginAndSignUp.class));
+
+                            final RadioGroup rgUserType = findViewById(R.id.user_type);
+                            int SelectedID = rgUserType.getCheckedRadioButtonId();
+                            RadioButton radioButton = findViewById(SelectedID);
+                            String Value = radioButton.getText().toString();
+                            if (Value.equals("Farmer")) {
+                                UserIsFarmer = true;
+                                startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,GetFarmerDetails.class));
+
+                            } else if (Value.equals("Wholeseller")){
+                                UserIsFarmer = false;
+                                startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
+
+                            }
+
+
                         } else {
                             if (task.getException()instanceof FirebaseAuthUserCollisionException){
                                 Toast.makeText(SignUp.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                             }
-                                /*else {
+                                else {
                                     Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }*/
+                                }
                         }
                     }
                 });

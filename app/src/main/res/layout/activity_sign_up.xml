@@ -36,7 +36,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Select:"
+            android:text="@string/page_2_select"
             android:textColor="@color/colorAccent"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
-            android:id="@+id/select"
+            android:id="@+id/user_type"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="36dp"
@@ -57,28 +57,26 @@
             tools:layout_editor_absoluteX="16dp">
 
             <RadioButton
-                android:id="@+id/mulberry_yes"
+                android:id="@+id/farmer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:textSize="18sp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:text="@string/page_2_farmer"
                 android:textColor="@color/colorAccent"
-                android:text="Farmer" />
+                android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/mulberry_no"
+                android:id="@+id/wholeseller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:textSize="18sp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="32dp"
+                android:text="@string/page_2_wholeseller"
                 android:textColor="@color/colorAccent"
-                android:text="Wholeseller" />
+                android:textSize="18sp" />
         </RadioGroup>
 
 
@@ -124,7 +122,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Enter password"
+            android:hint="@string/page_2_password"
             android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
@@ -142,7 +140,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Confirm Your Password"
+            android:hint="@string/page_2_confirm_password"
             android:inputType="textPassword"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
@@ -160,14 +158,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="80dp"
             android:ems="10"
-            android:hint="Enter Email"
+            android:hint="@string/page_2_email"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/select"
+            app:layout_constraintTop_toBottomOf="@+id/user_type"
             app:layout_constraintTop_toTopOf="parent"
             tools:textColor="@color/colorAccent"
             tools:textColorHighlight="@color/white" />

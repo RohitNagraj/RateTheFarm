@@ -8,7 +8,12 @@
 
     <string name="page_2_heading">Sign Up</string>
     <string name="page_2_already_registered">Already Registered?</string>
-    <string name="page_2_confirm_password">Confirm Password</string>
+    <string name="page_2_confirm_password">Confirm Your Password</string>
+    <string name="page_2_select">Select</string>
+    <string name="page_2_farmer">Farmer</string>
+    <string name="page_2_wholeseller">Wholeseller</string>
+    <string name="page_2_password">Enter Password</string>
+    <string name="page_2_email">Enter Email</string>
 
 
     <string name="page_3_heading">Enter Details</string>
