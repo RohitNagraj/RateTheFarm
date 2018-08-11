@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.text.TextUtils;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -118,23 +119,26 @@ public class GetFarmerDetails extends AppCompatActivity {
                 if (mAge.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
-                } else {
+                }
+                else {
                     userData.setAge(Integer.parseInt(mAge.getText().toString()));
                 }
 
 
-                if (mMaleWorkers.getText().toString().matches("")) {
+                //if (mMaleWorkers.getText().toString().matches("")) {
+                if (TextUtils.isEmpty(mMaleWorkers.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
-                } else {
-                    userData.setAge(Integer.parseInt(mMaleWorkers.getText().toString()));
+                }
+                else {
+                    userData.setMaleWorkers(Integer.parseInt(mMaleWorkers.getText().toString()));
                 }
 
                 if (mFemaleWorkers.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mFemaleWorkers.getText().toString()));
+                    userData.setFemaleWorkers(Integer.parseInt(mFemaleWorkers.getText().toString()));
                 }
 
 
@@ -163,49 +167,49 @@ public class GetFarmerDetails extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mCow.getText().toString()));
+                    userData.setCow(Integer.parseInt(mCow.getText().toString()));
                 }
 
                 if (mBuffalo.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mBuffalo.getText().toString()));
+                    userData.setBuffalo(Integer.parseInt(mBuffalo.getText().toString()));
                 }
 
                 if (mCock.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mCock.getText().toString()));
+                    userData.setCock(Integer.parseInt(mCock.getText().toString()));
                 }
 
                 if (mHen.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mHen.getText().toString()));
+                    userData.setHen(Integer.parseInt(mHen.getText().toString()));
                 }
 
                 if (mSheep.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mSheep.getText().toString()));
+                    userData.setSheep(Integer.parseInt(mSheep.getText().toString()));
                 }
 
                 if (mGoat.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mGoat.getText().toString()));
+                    userData.setGoat(Integer.parseInt(mGoat.getText().toString()));
                 }
 
                 if (mOtherAnimals.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setAge(Integer.parseInt(mOtherAnimals.getText().toString()));
+                    userData.setOtherAnimals(Integer.parseInt(mOtherAnimals.getText().toString()));
                 }
 
 
@@ -261,7 +265,7 @@ public class GetFarmerDetails extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    userData.setCropArea(Double.parseDouble(mCropYield.getText().toString()));
+                    userData.setCropYield(Double.parseDouble(mCropYield.getText().toString()));
                 }
 
                 SelectedID = rgOnlineSales.getCheckedRadioButtonId();

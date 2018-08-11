@@ -46,7 +46,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.mCrop.setText("Crop : " + listItem.getCropName());
         holder.mLand.setText("Total Land : " + Double.toString(listItem.getLand()));
         holder.mAnimals.setText("Animals : " + Integer.toString(listItem.getTotalAnimals()));
-        holder.mRating.setText(Double.toString(listItem.getRating()));
+
+        holder.mRating.setText(String.format("%.1f",listItem.getRating()));
 
         holder.mConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
