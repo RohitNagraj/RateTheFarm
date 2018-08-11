@@ -378,12 +378,145 @@ public class UserData {
     }
 
     public void setCalculatedValues() {
-        // Rating =
-        //Enter Rating algorithm here.
+        int ir=0,cowbuf=0, goatrate, cockrate, sheeprate, mulrate, machinerate=0, onrate=0, nurseryrate=0;
+        int scirate=0, salerate=0, landrate, croprate, yeildrate, totalrate=50;
+        if(MaleWorkers>=3)
+            MaleWorkers=4;
+        if(FemaleWorkers>=3)
+            FemaleWorkers=4;
+
+        if(IrrigatedOrRainfed.equals("Irrigated")) {
+            ir = 7;
+            totalrate = 52;
+        }
+        else if(IrrigatedOrRainfed.equals("Rainfed"))
+        {
+            ir=5;
+            totalrate = 50;
+        }
+        if(Cow+Buffalo>5)
+            cowbuf=5;
+        else
+            cowbuf= Cow + Buffalo;
+
+        if(Goat>2)
+            goatrate=5;
+        else
+            goatrate=Goat*2;
+
+        if(Sheep>2)
+            sheeprate=5;
+        else
+            sheeprate=Sheep*2;
+
+        if(Cock>2)
+            cockrate=5;
+        else
+            cockrate=Cock*2;
+
+        if(SellMulberry==true)
+        {
+            if(MulberryYield>1089)
+            {
+               mulrate=5;
+            }
+            else{
+                mulrate = 3;
+            }
+        }
+        else {
+            mulrate = 0;
+        }
+
+        if(OwnsBullockCart==true)
+        {
+            machinerate++;
+        }
+        if(OwnsPlougher==true)
+        {
+            machinerate++;
+        }
+        if(OwnsPowerTiller==true)
+        {
+            machinerate++;
+        }
+        if(OwnsRotomator==true)
+        {
+            machinerate++;
+        }
+        if(OwnsSprayer==true)
+        {
+            machinerate++;
+        }
+        if(OwnsSprinkler==true)
+        {
+            machinerate++;
+        }
+        if(OwnsTractor==true)
+        {
+            machinerate++;
+        }
+
+        if(machinerate>=5)
+            machinerate=5;
+
+        if(OnlineSale==true)
+        {
+            onrate=5;
+        }
+        if(OwnsNursery==true)
+        {
+            nurseryrate=5;
+        }
+        if(ScientificSuggestions==true)
+        {
+            scirate=5;
+        }
+
+        if(SalesAPMC==true && SalesLocal==true)
+        {
+            salerate=5;
+        }
+        else if(SalesLocal==true && SalesAPMC==false)
+        {
+            salerate=3;
+        }
+        else if(SalesAPMC==true && SalesLocal==false)
+        {
+            salerate=4;
+        }
+        if(Land<=80)
+            landrate=2;
+        else if(Land>80 && Land<160)
+            landrate=3;
+        else
+            landrate=5;
+
+        if(CropYield>=100)
+            croprate=5;
+        else if(CropYield>80 && CropYield<100)
+            croprate=4;
+        else if(CropYield>60 && CropYield<80)
+            croprate=3;
+        else
+            croprate=2;
+        YieldPerHectre = croprate / landrate;
+
+        if(YieldPerHectre>1)
+            yeildrate=5;
+        else if(YieldPerHectre==1)
+            yeildrate=4;
+        else if(YieldPerHectre>0.5)
+            yeildrate=3;
+        else
+            yeildrate=2;
+        Rating = (MaleWorkers*10)+(FemaleWorkers*6)+(landrate*ir)+(croprate*4)+(yeildrate*8);
+        Rating += (cowbuf*4)+(goatrate*2)+(sheeprate*2)+(Hen*4)+(cockrate*2)+(0.5*OtherAnimals);
+        Rating += (mulrate*4) +(machinerate*2)+ (nurseryrate*0.5) + onrate + scirate + (salerate*2);
+
+        Rating= Rating / totalrate;
 
         TotalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
-
-        YieldPerHectre = CropYield / Land;
 
     }
 
