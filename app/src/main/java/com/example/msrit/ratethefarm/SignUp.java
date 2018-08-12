@@ -23,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUp extends AppCompatActivity {
 
-
     private FirebaseAuth mAuth;
     private Button login;
     private Button register;
@@ -33,12 +32,10 @@ public class SignUp extends AppCompatActivity {
     private ProgressDialog progressDialog;
     public Boolean UserIsFarmer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
@@ -58,7 +55,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (view==register)
-                    userLogIn();
+                    userSignUp();
             }
         });
 
@@ -71,9 +68,9 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-
     }
-    private void userLogIn(){
+
+    private void userSignUp(){
         String mEmail=email.getText().toString().trim();
         String mPassword =password.getText().toString().trim();
         String mConfirmPassword=confirmPassword.getText().toString().trim();
@@ -83,11 +80,11 @@ public class SignUp extends AppCompatActivity {
             email.requestFocus();
             return;
         }
-            if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()){
-                Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
-                email.requestFocus();
-                return;
-            }
+        if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()){
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            email.requestFocus();
+            return;
+        }
         if (TextUtils.isEmpty(mPassword)) {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
             password.requestFocus();
@@ -131,8 +128,6 @@ public class SignUp extends AppCompatActivity {
                                 startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
 
                             }
-
-
                         } else {
                             if (task.getException()instanceof FirebaseAuthUserCollisionException){
                                 Toast.makeText(SignUp.this, "Email is already registered", Toast.LENGTH_SHORT).show();
@@ -143,6 +138,5 @@ public class SignUp extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 }

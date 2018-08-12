@@ -378,13 +378,13 @@ public class UserData {
         return rating;
     }
 
-    public int getCheck() {
+    /*public int getCheck() {
         return Check;
     }
 
     public void setCheck(int check) {
         Check = check;
-    }
+    }*/
 
     public void setTotalAnimals () {
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;

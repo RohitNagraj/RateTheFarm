@@ -124,8 +124,6 @@ public class GetFarmerDetails extends AppCompatActivity {
                     userData.setAge(Integer.parseInt(mAge.getText().toString()));
                 }
 
-
-                //if (mMaleWorkers.getText().toString().matches("")) {
                 if (TextUtils.isEmpty(mMaleWorkers.getText().toString())) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -141,7 +139,6 @@ public class GetFarmerDetails extends AppCompatActivity {
                     userData.setFemaleWorkers(Integer.parseInt(mFemaleWorkers.getText().toString()));
                 }
 
-
                 if (mLandArea.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -149,19 +146,15 @@ public class GetFarmerDetails extends AppCompatActivity {
                     userData.setLand(Double.parseDouble(mLandArea.getText().toString()));
                 }
 
-
                 int SelectedID = rgLandType.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(SelectedID);
                 if (radioButton == null) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                else
-                {
+                else {
                     userData.setIrrigatedOrRainfed(radioButton.getText().toString());
                 }
-
-
 
                 if (mCow.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
@@ -212,7 +205,6 @@ public class GetFarmerDetails extends AppCompatActivity {
                     userData.setOtherAnimals(Integer.parseInt(mOtherAnimals.getText().toString()));
                 }
 
-
                 userData.setMulberryYield(Double.parseDouble(mMulberryYield.getText().toString()));
                 SelectedID = rgMulberry.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
@@ -250,7 +242,6 @@ public class GetFarmerDetails extends AppCompatActivity {
                 if (cSprinkler.isChecked()) {
                     userData.setOwnsSprinkler(true);
                 }
-
 
                 userData.setCropName(mCrop.getText().toString());
 
@@ -300,15 +291,11 @@ public class GetFarmerDetails extends AppCompatActivity {
 
                 SelectedID = rgNursery.getCheckedRadioButtonId();
                 radioButton = findViewById(SelectedID);
-                if (radioButton == null)
-                {
+                if (radioButton == null) {
                     Toast.makeText(getApplicationContext(), "Field cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
-                }
-
-                else {
+                } else {
                     String Value = radioButton.getText().toString();
-
                     if (Value.equals("Yes")) {
                         userData.setOwnsNursery(true);
                     } else {
@@ -331,9 +318,5 @@ public class GetFarmerDetails extends AppCompatActivity {
 
             }
         });
-
-        }
-
-
-
+    }
 }

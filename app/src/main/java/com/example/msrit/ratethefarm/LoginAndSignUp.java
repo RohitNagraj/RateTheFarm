@@ -60,7 +60,6 @@ public class LoginAndSignUp extends AppCompatActivity {
             }
         });
 
-
         mPage3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,9 +84,6 @@ public class LoginAndSignUp extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
-
-
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
