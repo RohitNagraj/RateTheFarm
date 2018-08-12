@@ -15,7 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ShowFarmerDetails extends AppCompatActivity {
-
     DatabaseReference mDatabase;
 
     private TextView mName;
@@ -25,6 +24,19 @@ public class ShowFarmerDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_farmer_details);
+           
+        final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.simpleRatingBar);
+        Button submitButton = (Button) findViewById(R.id.submitButton);
+       
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               
+                String totalStars = "Total Stars:: " + simpleRatingBar.getNumStars();
+                String rating = "Rating :: " + man.getRating();
+                Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
+            }
+        });
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Users").child(MyAdapter.mClickID).addValueEventListener(new ValueEventListener() {
