@@ -57,7 +57,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
                 userData.setConsumerRating(simpleRatingBar.getRating());
 
-                Toast.makeText(getApplicationContext(), Float.toString(userData.getConsumerRating()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), Integer.toString(userData.getNoOfConsumers()), Toast.LENGTH_SHORT).show();
 
                 mDatabase.child("Users").child(Integer.toString(userData.getUserID())).setValue(userData);
 
