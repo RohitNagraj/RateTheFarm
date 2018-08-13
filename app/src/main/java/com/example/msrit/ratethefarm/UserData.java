@@ -537,7 +537,7 @@ public class UserData {
         rating += (mulrate*4) +(machinerate*2)+ (nurseryrate*0.5) + onrate + scirate + (salerate*2);
 
         rating= rating / totalrate;
-        
+
 
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
 

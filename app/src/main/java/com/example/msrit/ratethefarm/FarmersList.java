@@ -47,6 +47,7 @@ public class FarmersList extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 UserData value = dataSnapshot.getValue(UserData.class);
+                
                 mListItems.add(value);
                 mAdapter.notifyDataSetChanged();
             }
