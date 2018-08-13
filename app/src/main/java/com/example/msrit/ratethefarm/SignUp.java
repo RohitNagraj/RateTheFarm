@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,GetFarmerDetails.class));
+            startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
         }
 
         progressDialog = new ProgressDialog(this);
