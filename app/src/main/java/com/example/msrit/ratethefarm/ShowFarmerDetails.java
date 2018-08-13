@@ -52,19 +52,23 @@ public class ShowFarmerDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String totalStars = "Total Stars : " + simpleRatingBar.getNumStars();
-                String consumerRating = "Rating : " + simpleRatingBar.getRating();
-
                 userData.setConsumerRating(simpleRatingBar.getRating());
 
-                Toast.makeText(getApplicationContext(), Integer.toString(userData.getNoOfConsumers()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Rating submitted successfully", Toast.LENGTH_SHORT).show();
 
                 mDatabase.child("Users").child(Integer.toString(userData.getUserID())).setValue(userData);
 
-
-                //Toast.makeText(getApplicationContext(), totalStars + "\n" + consumerRating, Toast.LENGTH_LONG).show();
             }
         });
 
     }
 }
+
+
+//TODO prevent farmer from rating himself.
+//TODO prevent going to GetFarmerDetails on pressing back.
+//TODO add app icon.
+//TODO optimize rating algorithm
+//TODO Be clear about mulberry yield and other fields
+//TODO make fields non empty properly
+//TODO Add logout button
