@@ -5,46 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowFarmerDetails">
+
     <RatingBar
-        android:id="@+id/simpleRatingBar"
+        android:id="@+id/consumer_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:background="#0f0"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="16dp"
+        android:animationResolution="@integer/google_play_services_version"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:rating="3" />
+        android:rating="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/submit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#f00"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
         android:padding="10dp"
         android:text="Submit"
         android:textColor="#fff"
         android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/consumer_rating" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </android.support.constraint.ConstraintLayout>

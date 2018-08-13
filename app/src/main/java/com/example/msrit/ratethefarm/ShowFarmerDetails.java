@@ -10,12 +10,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.Button;
-import android.widget.Toast;
+
 public class ShowFarmerDetails extends AppCompatActivity {
 //UserData man = new UserData();
     DatabaseReference mDatabase;
@@ -26,22 +25,10 @@ public class ShowFarmerDetails extends AppCompatActivity {
         setContentView(R.layout.activity_show_farmer_details);
 
         
-        final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.simpleRatingBar);
+        final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.consumer_rating);
         Button submitButton = (Button) findViewById(R.id.submitButton);
         
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-                String totalStars = "Total Stars:: " + simpleRatingBar.getNumStars();
-                String rating = "Rating :: " + simpleRatingBar.getRating();
-                Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
-                
-                
-                
-                
-            }
-        });
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Users").child(MyAdapter.mClickID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -56,5 +43,20 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
             }
         });
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String totalStars = "Total Stars : " + simpleRatingBar.getNumStars();
+                String rating = "Rating : " + simpleRatingBar.getRating();
+                Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
+
+
+
+
+            }
+        });
+
     }
 }
