@@ -51,6 +51,8 @@ public class UserData {
     private double yieldPerHectre;
     private double rating;
 
+    private String email;
+
 
     public UserData() {
         Name = null;
@@ -373,6 +375,13 @@ public class UserData {
         return yieldPerHectre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public double getRating() {
         return rating;

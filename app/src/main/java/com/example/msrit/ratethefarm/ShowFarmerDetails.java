@@ -26,7 +26,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
         
         final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.consumer_rating);
-        Button submitButton = (Button) findViewById(R.id.submitButton);
+        Button submitButton = (Button) findViewById(R.id.submit);
         
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
