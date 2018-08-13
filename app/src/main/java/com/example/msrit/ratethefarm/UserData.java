@@ -50,7 +50,6 @@ public class UserData {
     private int totalAnimals;
     private double yieldPerHectre;
     private double rating;
-
     private double consumerRating;
 
     private String email;
@@ -390,9 +389,7 @@ public class UserData {
         this.email = email;
     }
 
-    public double getRating() {
-        return rating;
-    }
+
 
     /*public int getCheck() {
         return Check;
@@ -559,7 +556,6 @@ public class UserData {
 
 
     public void setConsumerRating(float value){
-
         double val = (double)value;
         if(noOfConsumers == 0){
             val*=2.0;
@@ -568,13 +564,11 @@ public class UserData {
         }
         else{
             val*=2.0;
-            //consumerRating = ((consumerRating*noOfConsumers) + val)/(noOfConsumers+1);
-            consumerRating = (consumerRating+val)/2;
+            consumerRating = (((consumerRating/2)*noOfConsumers) + val)/(noOfConsumers+1);
             noOfConsumers++;
         }
         double remainder = noOfConsumers+10;
         double weight = noOfConsumers/remainder;
-
         rating = ( (rating*(1-weight)) + (consumerRating*weight) );
     }
     public double getConsumerRating() {
@@ -587,5 +581,9 @@ public class UserData {
 
     public void setNoOfConsumers(int noOfConsumers) {
         this.noOfConsumers = noOfConsumers;
+    }
+
+    public double getRating() {
+        return rating;
     }
 }
