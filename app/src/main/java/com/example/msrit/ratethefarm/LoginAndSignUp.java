@@ -13,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,7 @@ public class LoginAndSignUp extends AppCompatActivity {
     private Button register;
     private EditText password;
     private EditText email;
+    private TextView forgotPassword;
     private ProgressDialog progressDialog;
     final static String TAG="Status";
 
@@ -94,7 +96,7 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
-
+        forgotPassword = findViewById(R.id.forgotPassword);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
 
@@ -113,6 +115,15 @@ public class LoginAndSignUp extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), ForgotPassword.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
 
 
