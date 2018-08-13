@@ -19,24 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SignUp"
-            android:theme="@style/OpeningScreenTheme"/>
-
-
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/OpeningScreenTheme" />
         <activity
             android:name=".GetFarmerDetails"
             android:label="@string/page_3_heading" />
-
         <activity
             android:name=".FarmersList"
             android:label="@string/page_4_heading" />
-
         <activity
             android:name=".ShowFarmerDetails"
             android:label="@string/page_5_heading" />
-
-
+        <activity android:name=".ForgotPassword"></activity>
     </application>
 
 </manifest>
