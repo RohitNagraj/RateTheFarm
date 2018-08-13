@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,8 +36,11 @@ public class FarmersList extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
         mListItems = new ArrayList<>();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String cEmail = user.getEmail();
+        Toast.makeText(getApplicationContext(),cEmail,Toast.LENGTH_SHORT).show();
 
         mDatabase.child("Users").addChildEventListener(new ChildEventListener() {
             @Override
