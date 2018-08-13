@@ -17,7 +17,7 @@ import android.widget.RatingBar;
 import android.widget.Button;
 import android.widget.Toast;
 public class ShowFarmerDetails extends AppCompatActivity {
-UserData man = new UserData();
+//UserData man = new UserData();
     DatabaseReference mDatabase;
 
     @Override
@@ -34,7 +34,7 @@ UserData man = new UserData();
             public void onClick(View v) {
                 
                 String totalStars = "Total Stars:: " + simpleRatingBar.getNumStars();
-                String rating = "Rating :: " + man.getRating();
+                String rating = "Rating :: " + simpleRatingBar.getRating();
                 Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
                 
                 
