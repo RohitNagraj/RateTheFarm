@@ -51,6 +51,9 @@ public class UserData {
     private double yieldPerHectre;
     private double rating;
 
+    private float consumerRating;
+    private int noOfConsumers;
+
 
     public UserData() {
         Name = null;
@@ -89,6 +92,8 @@ public class UserData {
         totalAnimals = 0;
         yieldPerHectre = 0.0;
         rating = 0.0;
+        consumerRating = 0;
+        noOfConsumers = 0;
     }
 
     public String getName() {
@@ -530,11 +535,28 @@ public class UserData {
         rating = (MaleWorkers*10)+(FemaleWorkers*6)+(landrate*ir)+(croprate*4)+(yeildrate*8);
         rating += (cowbuf*4)+(goatrate*2)+(sheeprate*2)+(Hen*4)+(cockrate*2)+(0.5*OtherAnimals);
         rating += (mulrate*4) +(machinerate*2)+ (nurseryrate*0.5) + onrate + scirate + (salerate*2);
+
         rating= rating / totalrate;
+        
 
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
 
 
+    }
+
+
+    public void setConsumerRating(float value){
+        if(noOfConsumers == 0){
+            consumerRating = value;
+        }
+        else{
+            consumerRating = ((consumerRating*noOfConsumers) + value)/(++noOfConsumers);
+        }
+
+        rating = ((rating*0.6) + consumerRating*0.4)*2;
+    }
+    public float getConsumerRating() {
+        return consumerRating;
     }
 
 }

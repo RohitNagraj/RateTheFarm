@@ -18,6 +18,8 @@ import android.widget.Button;
 public class ShowFarmerDetails extends AppCompatActivity {
 //UserData man = new UserData();
     DatabaseReference mDatabase;
+    private int userID;
+    private UserData userData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +28,17 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
         
         final RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.consumer_rating);
-        Button submitButton = (Button) findViewById(R.id.submitButton);
+        Button submitButton = (Button) findViewById(R.id.submit);
         
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Users").child(MyAdapter.mClickID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserData value = dataSnapshot.getValue(UserData.class);
-                Toast.makeText(ShowFarmerDetails.this, value.getName(), Toast.LENGTH_SHORT).show();
+                userData = dataSnapshot.getValue(UserData.class);
+                userID = userData.getUserID();
+
+                Toast.makeText(ShowFarmerDetails.this, userData.getName(), Toast.LENGTH_SHORT).show();
             }
 
 
@@ -49,12 +53,16 @@ public class ShowFarmerDetails extends AppCompatActivity {
             public void onClick(View v) {
 
                 String totalStars = "Total Stars : " + simpleRatingBar.getNumStars();
-                String rating = "Rating : " + simpleRatingBar.getRating();
-                Toast.makeText(getApplicationContext(), totalStars + "\n" + rating, Toast.LENGTH_LONG).show();
+                String consumerRating = "Rating : " + simpleRatingBar.getRating();
+
+                userData.setConsumerRating(simpleRatingBar.getRating());
+
+                Toast.makeText(getApplicationContext(), Float.toString(userData.getConsumerRating()), Toast.LENGTH_SHORT).show();
+
+                mDatabase.child("Users").child(Integer.toString(userData.getUserID())).setValue(userData);
 
 
-
-
+                //Toast.makeText(getApplicationContext(), totalStars + "\n" + consumerRating, Toast.LENGTH_LONG).show();
             }
         });
 
