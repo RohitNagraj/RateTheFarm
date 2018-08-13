@@ -38,7 +38,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
                 userData = dataSnapshot.getValue(UserData.class);
                 userID = userData.getUserID();
 
-                Toast.makeText(ShowFarmerDetails.this, userData.getName(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ShowFarmerDetails.this, userData.getName(), Toast.LENGTH_SHORT).show();
             }
 
 

@@ -39,7 +39,7 @@ public class FarmersList extends AppCompatActivity {
         mListItems = new ArrayList<>();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String cEmail = user.getEmail();
+        final String cEmail = user.getEmail();
         Toast.makeText(getApplicationContext(),cEmail,Toast.LENGTH_SHORT).show();
 
         mDatabase.child("Users").addChildEventListener(new ChildEventListener() {
@@ -47,8 +47,13 @@ public class FarmersList extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 UserData value = dataSnapshot.getValue(UserData.class);
-                
-                mListItems.add(value);
+                if(value.getEmail()==cEmail){
+                    mListItems.add(0,value);
+                }
+                else {
+                    mListItems.add(value);
+                }
+
                 mAdapter.notifyDataSetChanged();
             }
 
