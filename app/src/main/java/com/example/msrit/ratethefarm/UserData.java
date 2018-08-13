@@ -52,7 +52,11 @@ public class UserData {
     private double rating;
 
     private double consumerRating;
+
+    private String email;
+
     private int noOfConsumers;
+
 
 
     public UserData() {
@@ -378,6 +382,13 @@ public class UserData {
         return yieldPerHectre;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public double getRating() {
         return rating;
@@ -537,8 +548,9 @@ public class UserData {
         rating += (mulrate*4) +(machinerate*2)+ (nurseryrate*0.5) + onrate + scirate + (salerate*2);
 
         rating= rating / totalrate;
+
         rating*=2;
-        
+
 
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
 
