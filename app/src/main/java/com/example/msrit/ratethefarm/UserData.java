@@ -50,12 +50,11 @@ public class UserData {
     private int totalAnimals;
     private double yieldPerHectre;
     private double rating;
-
     private double consumerRating;
 
     private String email;
 
-    private int noOfConsumers;
+    private int noOfConsumerRatings;
 
 
 
@@ -97,7 +96,7 @@ public class UserData {
         yieldPerHectre = 0.0;
         rating = 0.0;
         consumerRating = 0;
-        noOfConsumers = 0;
+        noOfConsumerRatings = 0;
     }
 
     public String getName() {
@@ -390,9 +389,7 @@ public class UserData {
         this.email = email;
     }
 
-    public double getRating() {
-        return rating;
-    }
+
 
     /*public int getCheck() {
         return Check;
@@ -559,33 +556,50 @@ public class UserData {
 
 
     public void setConsumerRating(float value){
-
         double val = (double)value;
-        if(noOfConsumers == 0){
+        if(noOfConsumerRatings == 0){
             val*=2.0;
             consumerRating = val;
-            noOfConsumers++;
+            noOfConsumerRatings++;
         }
         else{
             val*=2.0;
-            //consumerRating = ((consumerRating*noOfConsumers) + val)/(noOfConsumers+1);
-            consumerRating = (consumerRating+val)/2;
-            noOfConsumers++;
+            consumerRating = (((consumerRating/2)*noOfConsumerRatings) + val)/(noOfConsumerRatings+1);
+            noOfConsumerRatings++;
         }
-        double remainder = noOfConsumers+10;
-        double weight = noOfConsumers/remainder;
+        double remainder = noOfConsumerRatings+10;
+        double weight = noOfConsumerRatings/remainder;
 
+        if(noOfConsumerRatings == 0){
+            value*=2.0;
+            consumerRating = value;
+            noOfConsumerRatings++;
+        }
+        else{
+            value*=2.0;
+
+            consumerRating = (((consumerRating/2)*noOfConsumerRatings) + value)/(noOfConsumerRatings+1);
+
+
+            noOfConsumerRatings++;
+        }
+         remainder = noOfConsumerRatings+10;
+         weight = noOfConsumerRatings/remainder;
         rating = ( (rating*(1-weight)) + (consumerRating*weight) );
     }
     public double getConsumerRating() {
         return consumerRating;
     }
 
-    public int getNoOfConsumers() {
-        return noOfConsumers;
+    public int getNoOfConsumerRatings() {
+        return noOfConsumerRatings;
     }
 
     public void setNoOfConsumers(int noOfConsumers) {
-        this.noOfConsumers = noOfConsumers;
+        this.noOfConsumerRatings = noOfConsumers;
+    }
+
+    public double getRating() {
+        return rating;
     }
 }
