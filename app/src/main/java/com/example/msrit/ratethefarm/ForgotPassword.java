@@ -18,8 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatActivity {
 
-    private Button send;
-    private TextView login;
+    private Button mForgotPassword;
+    private TextView mLogin;
+    private TextView mSignUp;
     private EditText email;
     private FirebaseAuth mAuth;
 
@@ -28,18 +29,27 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        login = findViewById(R.id.login);
-        email = findViewById(R.id.email);
-        send = findViewById(R.id.send);
+        mLogin = findViewById(R.id.login);
+        mSignUp = findViewById(R.id.sign_up);
+        email = findViewById(R.id.email_field);
+        mForgotPassword = findViewById(R.id.reset_password);
         mAuth = FirebaseAuth.getInstance();
 
-        login.setOnClickListener(new View.OnClickListener() {
+        mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this,LoginAndSignUp.class));}
+                    startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this,LoginAndSignUp.class));
+            }
         });
 
-        send.setOnClickListener(new View.OnClickListener() {
+        mSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this,SignUp.class));
+            }
+        });
+
+        mForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String mEmail = email.getText().toString().trim();
