@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,10 +22,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
+import java.util.Objects;
+
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Button login;
+    private TextView login;
     private Button register;
     private EditText confirmPassword;
     private EditText password;
@@ -47,7 +50,7 @@ public class SignUp extends AppCompatActivity {
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);
 
-        email = findViewById(R.id.email);
+        email = findViewById(R.id.email_field);
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.confirmpassword);
 
@@ -133,7 +136,7 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                             }
                                 else {
-                                    Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                         }
                     }

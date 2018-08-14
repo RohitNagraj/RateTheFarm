@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class LoginAndSignUp extends AppCompatActivity {
 
     // Remove when project is done
@@ -28,7 +30,7 @@ public class LoginAndSignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Button login;
-    private Button register;
+    private TextView register;
     private EditText password;
     private EditText email;
     private TextView forgotPassword;
@@ -96,8 +98,8 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
-        forgotPassword = findViewById(R.id.forgotPassword);
-        email = findViewById(R.id.email);
+        forgotPassword = findViewById(R.id.forgot_password);
+        email = findViewById(R.id.email_field);
         password = findViewById(R.id.password);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +170,7 @@ public class LoginAndSignUp extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(),FarmersList.class));
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(),task.getException().getMessage().toString(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_LONG).show();
                         }
                     }
                 });

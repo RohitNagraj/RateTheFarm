@@ -47,7 +47,7 @@ public class FarmersList extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 UserData value = dataSnapshot.getValue(UserData.class);
-                if(value.getEmail()==cEmail){
+                if(value.getEmail().equals(cEmail)){
                     mListItems.add(0,value);
                 }
                 else {
