@@ -6,7 +6,6 @@ public class UserData {
 
     private String Name;
     private String Village;
-    private String Hobli;
     private String Taluq;
     private int Age;
 
@@ -48,7 +47,7 @@ public class UserData {
 
     //To be calculated
     private int totalAnimals;
-    private double yieldPerHectre;
+    private double yieldPerHectare;
     private double rating;
     private double consumerRating;
     private double ourRating;
@@ -61,7 +60,6 @@ public class UserData {
     public UserData() {
         Name = null;
         Village = null;
-        Hobli = null;
         Taluq = null;
         Age = 0;
         MaleWorkers = 0;
@@ -93,7 +91,7 @@ public class UserData {
         SalesLocal = false;
         SalesAPMC = false;
         totalAnimals = 0;
-        yieldPerHectre = 0.0;
+        yieldPerHectare = 0.0;
         rating = 0.0;
         consumerRating = 0;
         noOfConsumerRatings = 0;
@@ -114,14 +112,6 @@ public class UserData {
 
     public void setVillage(String village) {
         Village = village;
-    }
-
-    public String getHobli() {
-        return Hobli;
-    }
-
-    public void setHobli(String hobli) {
-        Hobli = hobli;
     }
 
     public String getTaluq() {
@@ -378,8 +368,8 @@ public class UserData {
     }
 
 
-    public double getYieldPerHectre() {
-        return yieldPerHectre;
+    public double getYieldPerHectare() {
+        return yieldPerHectare;
     }
 
     public String getEmail() {
@@ -532,15 +522,16 @@ public class UserData {
             croprate=3;
         else
             croprate=2;
-        yieldPerHectre = croprate / landrate;
-        if(yieldPerHectre>1)
+        double yieldcheck = croprate / landrate;
+        if(yieldcheck >1)
             yeildrate=5;
-        else if(yieldPerHectre==1)
+        else if(yieldcheck ==1)
             yeildrate=4;
-        else if(yieldPerHectre>0.5)
+        else if(yieldcheck >0.5)
             yeildrate=3;
         else
             yeildrate=2;
+
         rating = (MaleWorkers*10)+(FemaleWorkers*6)+(landrate*ir)+(croprate*4)+(yeildrate*8);
         rating += (cowbuf*4)+(goatrate*2)+(sheeprate*2)+(Hen*4)+(cockrate*2)+(0.5*OtherAnimals);
         rating += (mulrate*4) +(machinerate*2)+ (nurseryrate*0.5) + onrate + scirate + (salerate*2);
@@ -552,6 +543,7 @@ public class UserData {
 
 
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
+        yieldPerHectare = CropYield/CropArea;
 
 
     }
@@ -571,19 +563,6 @@ public class UserData {
         }
         double remainder = noOfConsumerRatings+10;
         double weight = noOfConsumerRatings/remainder;
-
-        if(noOfConsumerRatings == 0){
-            value*=2.0;
-            consumerRating = value;
-            noOfConsumerRatings=1;
-        }
-        else{
-            value*=2.0;
-
-            consumerRating = (((consumerRating)*noOfConsumerRatings) + value)/(noOfConsumerRatings+1);
-        }
-         remainder = noOfConsumerRatings+10;
-         weight = noOfConsumerRatings/remainder;
         rating = ( (ourRating*(1-weight)) + (consumerRating*weight) );
     }
     public double getConsumerRating() {
@@ -605,4 +584,6 @@ public class UserData {
         return ourRating;
     }
     public void setAppRating(double ourRating) { this.ourRating = ourRating; }
+
+
 }

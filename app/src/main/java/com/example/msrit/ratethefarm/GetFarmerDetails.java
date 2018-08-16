@@ -53,7 +53,6 @@ public class GetFarmerDetails extends AppCompatActivity {
 
         final EditText mName = findViewById(R.id.name);
         final EditText mVillage = findViewById(R.id.village);
-        final EditText mHobli = findViewById(R.id.hobli);
         final EditText mTaluq = findViewById(R.id.taluq);
         final EditText mAge = findViewById(R.id.age);
 
@@ -139,7 +138,6 @@ public class GetFarmerDetails extends AppCompatActivity {
                     userData.setVillage(mVillage.getText().toString());
                 }
 
-                userData.setHobli(mHobli.getText().toString());
                 userData.setTaluq(mTaluq.getText().toString());
 
 
