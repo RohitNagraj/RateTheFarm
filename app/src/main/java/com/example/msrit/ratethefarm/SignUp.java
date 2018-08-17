@@ -125,10 +125,12 @@ public class SignUp extends AppCompatActivity {
                             if (Value.equals("Farmer")) {
                                 UserIsFarmer = true;
                                 startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,GetFarmerDetails.class));
+                                finish();
 
                             } else if (Value.equals("Wholeseller")){
                                 UserIsFarmer = false;
                                 startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
+                                finish();
 
                             }
                         } else {

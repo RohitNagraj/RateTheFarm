@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.List;
 
-
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private  List<UserData> UserItems;
@@ -24,7 +23,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.context = context;
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,7 +30,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 .inflate(R.layout.user_data, parent, false);
         return new ViewHolder(v);
     }
-
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
@@ -59,7 +56,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             }
         });
     }
-
 
     @Override
     public int getItemCount() {

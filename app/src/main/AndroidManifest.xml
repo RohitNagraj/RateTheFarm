@@ -10,9 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
         <activity
             android:name=".LoginAndSignUp"
-            android:theme="@style/OpeningScreenTheme">
+            android:theme="@style/OpeningScreenTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,20 +26,26 @@
 
         <activity
             android:name=".SignUp"
+            android:screenOrientation="portrait"
             android:theme="@style/OpeningScreenTheme" />
 
         <activity
             android:name=".ForgotPassword"
             android:label="@string/page_3_heading"
+            android:screenOrientation="portrait"
             android:theme="@style/OpeningScreenTheme"/>
         <activity
             android:name=".GetFarmerDetails"
+            android:screenOrientation="portrait"
             android:label="@string/page_4_heading" />
         <activity
             android:name=".FarmersList"
+            android:theme="@style/OpeningScreenTheme"
+            android:screenOrientation="portrait"
             android:label="@string/page_5_heading" />
         <activity
             android:name=".ShowFarmerDetails"
+            android:screenOrientation="portrait"
             android:label="@string/page_6_heading" />
     </application>
 

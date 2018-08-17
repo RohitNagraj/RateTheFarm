@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,7 +15,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.text.TextUtils;
-
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,11 +31,16 @@ public class GetFarmerDetails extends AppCompatActivity {
     DatabaseReference mDatabase;
     UserData userData = new UserData();
 
+    private Toolbar mTopToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_farmer_details);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(mTopToolbar);
 
         mDatabase.child("Current Users").addValueEventListener(new ValueEventListener() {
             @Override
@@ -369,13 +376,54 @@ public class GetFarmerDetails extends AppCompatActivity {
 
                 userData.setCalculatedValues();
 
-                Toast.makeText(GetFarmerDetails.this, "Response Submitted", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),FarmersList.class));
 
                 mDatabase.child("Users").child(Integer.toString(userData.getUserID())).setValue(userData);
                 mDatabase.child("Current Users").setValue(userData.getUserID());
 
+
+                Toast.makeText(GetFarmerDetails.this, "Response Submitted", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),FarmersList.class));
+
+                finish();
             }
         });
+    }
+
+
+    //Logout Button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_button_get_farmer, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.logout) {
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+            Intent myIntent = new Intent(this, LoginAndSignUp.class);
+            startActivity(myIntent);
+            Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        Intent myIntent = new Intent(this, FarmersList.class);
+        startActivity(myIntent);
+        Toast.makeText(this, "Failed to create farmer profile", Toast.LENGTH_SHORT).show();
     }
 }

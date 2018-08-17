@@ -1,9 +1,13 @@
 package com.example.msrit.ratethefarm;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,12 +27,15 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
     DatabaseReference mDatabase;
     private UserData userData;
-
+    private Toolbar mTopToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_farmer_details);
+
+        mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(mTopToolbar);
 
         //Rating bar initialization
         final RatingBar ratingBar = findViewById(R.id.consumer_rating);
@@ -79,7 +86,6 @@ public class ShowFarmerDetails extends AppCompatActivity {
         final TextView mEmail = findViewById(R.id.email);
 
 
-
         //Firebase login details fetch
         final FirebaseUser loggedInUser = FirebaseAuth.getInstance().getCurrentUser();
         
@@ -92,6 +98,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(UserData.class);
 
+                Toast.makeText(ShowFarmerDetails.this, userData.getName() + "'s Profile", Toast.LENGTH_SHORT).show();
 
                 mName.setText               ("Name         :   " + userData.getName());
                 mAge.setText                ("Age             :   " + userData.getAge());
@@ -182,9 +189,7 @@ public class ShowFarmerDetails extends AppCompatActivity {
                     mPowerTiller.setTextColor(getResources().getColor(R.color.false_color));
                 }
 
-
                 mMulberry.setText("Mulberry Yield :  " + Double.toString(userData.getMulberryYield()) + " KGs");
-
 
                 if(userData.getOnlineSale()) {
                     mOnlineSale.setText("Willing to sell online  :  Yes");
@@ -231,15 +236,11 @@ public class ShowFarmerDetails extends AppCompatActivity {
                     mAPMCSales.setTextColor(getResources().getColor(R.color.false_color));
                 }
 
-
                 mEmail.setText("Email address  :   " + userData.getEmail());
-
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
 
@@ -249,26 +250,52 @@ public class ShowFarmerDetails extends AppCompatActivity {
 
                 if (userData.getEmail().equals(loggedInUser.getEmail())){
 
-                    Toast.makeText(getApplicationContext(), "Cannot rate your own profile",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Cannot rate your own profile",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     userData.setConsumerRating(ratingBar.getRating());
 
-                    Toast.makeText(getApplicationContext(), "Rating submitted successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Rating submitted successfully", Toast.LENGTH_SHORT).show();
 
                     mDatabase.child("Users").child(Integer.toString(userData.getUserID())).setValue(userData);
                 }
-
-
             }
         });
+    }
 
+    //Logout Button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_button, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.logout) {
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+            Intent myIntent = new Intent(this, LoginAndSignUp.class);
+            startActivity(myIntent);
+            Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        else if (id == R.id.add_farmer) {
+            Intent myIntent = new Intent(this, GetFarmerDetails.class);
+            startActivity(myIntent);
+            Toast.makeText(this, "Add new farmer profile", Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
 
-
-//TODO prevent going to GetFarmerDetails on pressing back.
 //TODO add app icon.
-//TODO prevent going to login page when already signed in
-//TODO Add logout button
-//TODO add rotation lock

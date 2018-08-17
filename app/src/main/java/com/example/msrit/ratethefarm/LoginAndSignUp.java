@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,9 +26,6 @@ import java.util.Objects;
 
 public class LoginAndSignUp extends AppCompatActivity {
 
-    // Remove when project is done
-    private Button mPage1, mPage2, mPage3, mPage4, mPage5;
-
     private FirebaseAuth mAuth;
     private Button login;
     private TextView register;
@@ -41,57 +39,10 @@ public class LoginAndSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_sign_up);
 
-        mPage1 = findViewById(R.id.page_1);
-        mPage2 = findViewById(R.id.page_2);
-        mPage3 = findViewById(R.id.page_3);
-        mPage4 = findViewById(R.id.page_4);
-        mPage5 = findViewById(R.id.page_5);
-
-        mPage1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent myIntent = new Intent(v.getContext(), LoginAndSignUp.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), SignUp.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent myIntent = new Intent(v.getContext(), GetFarmerDetails.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), FarmersList.class);
-                startActivity(myIntent);
-            }
-        });
-
-        mPage5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), ShowFarmerDetails.class);
-                startActivity(myIntent);
-            }
-        });
-
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
             startActivity(new Intent(LoginAndSignUp.this,FarmersList.class));
+            finish();
         }
 
         progressDialog = new ProgressDialog(this);
@@ -127,7 +78,6 @@ public class LoginAndSignUp extends AppCompatActivity {
         });
 
     }
-
 
     @TargetApi(Build.VERSION_CODES.FROYO)
     private void userLogIn(){
@@ -170,10 +120,32 @@ public class LoginAndSignUp extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(),FarmersList.class));
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
 
+    }
+
+    //Press back twice to exit
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }

@@ -56,7 +56,6 @@ public class UserData {
     private int noOfConsumerRatings;
 
 
-
     public UserData() {
         Name = null;
         Village = null;
@@ -380,20 +379,6 @@ public class UserData {
         this.email = email;
     }
 
-
-
-    /*public int getCheck() {
-        return Check;
-    }
-
-    public void setCheck(int check) {
-        Check = check;
-    }*/
-
-    public void setTotalAnimals () {
-        totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
-    }
-
     public void setCalculatedValues() {
 
         int ir=0,cowbuf=0, goatrate=0, cockrate=0, sheeprate=0, mulrate=0, machinerate=0, onrate=0, nurseryrate=0;
@@ -544,8 +529,6 @@ public class UserData {
 
         totalAnimals = Cock + Cow + Goat + Hen + Buffalo + Sheep + OtherAnimals;
         yieldPerHectare = CropYield/CropArea;
-
-
     }
 
 
@@ -584,6 +567,4 @@ public class UserData {
         return ourRating;
     }
     public void setAppRating(double ourRating) { this.ourRating = ourRating; }
-
-
 }

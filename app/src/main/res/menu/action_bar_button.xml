@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_action_name"
+        android:title="Logout"
+        android:orderInCategory="100"
+        yourapp:showAsAction="always" />
+
+    <item android:id="@+id/add_farmer"
+        android:icon="@drawable/ic_add_farmer"
+        android:title="Add Farmer"
+        android:orderInCategory="90"
+        yourapp:showAsAction="always" />
+
+</menu>
