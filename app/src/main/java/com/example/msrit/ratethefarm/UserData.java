@@ -53,6 +53,9 @@ public class UserData {
     private double ourRating;
     private String email;
 
+    private String PesticidesUsed;
+    private String FertilizersUsed;
+
     private int noOfConsumerRatings;
 
 
@@ -389,17 +392,17 @@ public class UserData {
             MaleWorkers=4;
 
         if(FemaleWorkers>=3)
-            FemaleWorkers=4;
+            FemaleWorkers=3;
 
         if(IrrigatedOrRainfed.equals("Irrigated")) {
-            ir = 7;
-            totalrate = 52;
+            ir = 6;
+            totalrate = 50;
         }
 
         else if(IrrigatedOrRainfed.equals("Rainfed"))
         {
-            ir=5;
-            totalrate = 50;
+            ir=4;
+            totalrate = 48;
         }
 
 
@@ -410,19 +413,19 @@ public class UserData {
             cowbuf= Cow + Buffalo;
 
         if(Goat>2)
-            goatrate=5;
+            goatrate=3;
 
         else
             goatrate=Goat*2;
 
         if(Sheep>2)
-            sheeprate=5;
+            sheeprate=3;
 
         else
             sheeprate=Sheep*2;
 
         if(Cock>2)
-            cockrate=5;
+            cockrate=3;
 
         else
             cockrate=Cock*2;
@@ -430,10 +433,10 @@ public class UserData {
         {
             if(MulberryYield>1089)
             {
-                mulrate=5;
+                mulrate=2;
             }
             else{
-                mulrate = 3;
+                mulrate = 1;
             }
         }
         else {
@@ -475,7 +478,7 @@ public class UserData {
         }
         if(OwnsNursery)
         {
-            nurseryrate=5;
+            nurseryrate=20;
         }
         if(ScientificSuggestions)
         {
@@ -485,11 +488,11 @@ public class UserData {
         {
             salerate=5;
         }
-        else if(SalesLocal && SalesAPMC)
+        else if(SalesLocal)
         {
             salerate=3;
         }
-        else if(SalesAPMC && SalesLocal)
+        else if(SalesAPMC)
         {
             salerate=4;
         }
@@ -567,4 +570,20 @@ public class UserData {
         return ourRating;
     }
     public void setAppRating(double ourRating) { this.ourRating = ourRating; }
+
+    public String getPesticidesUsed() {
+        return PesticidesUsed;
+    }
+
+    public void setPesticidesUsed(String pesticidesUsed) {
+        PesticidesUsed = pesticidesUsed;
+    }
+
+    public String getFertilizersUsed() {
+        return FertilizersUsed;
+    }
+
+    public void setFertilizersUsed(String fertilizersUsed) {
+        FertilizersUsed = fertilizersUsed;
+    }
 }
