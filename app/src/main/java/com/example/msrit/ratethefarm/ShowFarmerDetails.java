@@ -86,6 +86,10 @@ public class ShowFarmerDetails extends AppCompatActivity {
         final TextView mEmail = findViewById(R.id.email);
 
 
+        final TextView mPesticidesUsed = findViewById(R.id.pesticides_used);
+        final TextView mFertilizersUsed = findViewById(R.id.fertilizers_used);
+
+
         //Firebase login details fetch
         final FirebaseUser loggedInUser = FirebaseAuth.getInstance().getCurrentUser();
         
@@ -115,6 +119,16 @@ public class ShowFarmerDetails extends AppCompatActivity {
                 mYieldPerHectare.setText("Yield per hectare  :  " + String.format("%.1f",userData.getYieldPerHectare()) + " KGs / hectare");
                 mMaleWorkers.setText   ("Men in field            :   " + userData.getMaleWorkers());
                 mFemaleWorkers.setText ("Women in field      :   " + userData.getFemaleWorkers());
+                if(userData.getOwnsNursery()) {
+                    mNursery.setText("Organic                   :  Yes");
+                    mNursery.setTextColor(getResources().getColor(R.color.true_color));
+                }
+                else{
+                    mNursery.setText("Organic                   :  No");
+                    mNursery.setTextColor(getResources().getColor(R.color.false_color));
+                }
+                mPesticidesUsed.setText ("Pesticides Used    :   " + userData.getPesticidesUsed());
+                mFertilizersUsed.setText ("Fertilizers Used     :   " + userData.getFertilizersUsed());
 
 
                 mCows.setText("Cows  :   " + Integer.toString(userData.getCow()));
@@ -209,14 +223,6 @@ public class ShowFarmerDetails extends AppCompatActivity {
                     mScientificSuggestion.setTextColor(getResources().getColor(R.color.false_color));
                 }
 
-                if(userData.getOwnsNursery()) {
-                    mNursery.setText("Owns nursery  :  Yes");
-                    mNursery.setTextColor(getResources().getColor(R.color.true_color));
-                }
-                else{
-                    mNursery.setText("Owns nursery  :  No");
-                    mNursery.setTextColor(getResources().getColor(R.color.false_color));
-                }
 
                 if(userData.getSalesLocal()) {
                     mLocalSales.setText("Local sales  :  Yes");
