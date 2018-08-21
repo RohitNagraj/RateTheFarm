@@ -113,7 +113,9 @@ public class FarmersList extends AppCompatActivity {
             mAuth.signOut();
             Intent myIntent = new Intent(this, LoginAndSignUp.class);
             startActivity(myIntent);
+
             Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            finish();
             return true;
         }
 
@@ -133,8 +135,11 @@ public class FarmersList extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         }
 
         this.doubleBackToExitPressedOnce = true;

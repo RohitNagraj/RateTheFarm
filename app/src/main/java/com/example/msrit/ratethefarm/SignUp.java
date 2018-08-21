@@ -42,7 +42,10 @@ public class SignUp extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
+            Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         }
 
         progressDialog = new ProgressDialog(this);
@@ -67,7 +70,8 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
                 if (view==login){
                     finish();
-                    startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,LoginAndSignUp.class));}
+
+                }
             }
         });
 
@@ -107,6 +111,15 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
+        final RadioGroup rgUserType = findViewById(R.id.user_type);
+        int SelectedID = rgUserType.getCheckedRadioButtonId();
+
+        if (findViewById(SelectedID)==null) {
+            Toast.makeText(getApplicationContext(), "User Type cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         progressDialog.setMessage("Signing up...");
         progressDialog.show();
 
@@ -127,12 +140,15 @@ public class SignUp extends AppCompatActivity {
                                 startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,GetFarmerDetails.class));
                                 finish();
 
-                            } else if (Value.equals("Wholeseller")){
+                            }
+                            else {
                                 UserIsFarmer = false;
-                                startActivity(new Intent(com.example.msrit.ratethefarm.SignUp.this,FarmersList.class));
-                                finish();
+                                Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivityForResult(intent, 0);
 
                             }
+
                         } else {
                             if (task.getException()instanceof FirebaseAuthUserCollisionException){
                                 Toast.makeText(SignUp.this, "Email is already registered", Toast.LENGTH_SHORT).show();

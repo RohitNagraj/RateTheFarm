@@ -41,7 +41,9 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(LoginAndSignUp.this,FarmersList.class));
+            Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
             finish();
         }
 
@@ -116,8 +118,11 @@ public class LoginAndSignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG,"SignInWithEmail:Success",task.getException());
                             Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                             finish();
-                            startActivity(new Intent(getApplicationContext(),FarmersList.class));
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();

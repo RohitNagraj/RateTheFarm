@@ -38,7 +38,7 @@ public class ForgotPassword extends AppCompatActivity {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this,LoginAndSignUp.class));
+                finish();
             }
         });
 
@@ -46,6 +46,7 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this,SignUp.class));
+                finish();
             }
         });
 
@@ -70,7 +71,9 @@ public class ForgotPassword extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ForgotPassword.this, "Reset email has been successfully sent to this email ID", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(com.example.msrit.ratethefarm.ForgotPassword.this, LoginAndSignUp.class));
-                            } else {
+                                finish();
+                            }
+                            else {
                                 String error = task.getException().getMessage();
                                 Toast.makeText(ForgotPassword.this, "Error Occurred: " + error, Toast.LENGTH_SHORT).show();
                             }

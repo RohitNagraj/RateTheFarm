@@ -102,7 +102,6 @@ public class ShowFarmerDetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(UserData.class);
 
-                Toast.makeText(ShowFarmerDetails.this, userData.getName() + "'s Profile", Toast.LENGTH_SHORT).show();
 
                 mName.setText               ("Name         :   " + userData.getName());
                 mAge.setText                ("Age             :   " + userData.getAge());
@@ -290,7 +289,9 @@ public class ShowFarmerDetails extends AppCompatActivity {
             mAuth.signOut();
             Intent myIntent = new Intent(this, LoginAndSignUp.class);
             startActivity(myIntent);
+
             Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            finish();
             return true;
         }
 

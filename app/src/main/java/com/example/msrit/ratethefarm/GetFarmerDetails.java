@@ -406,7 +406,10 @@ public class GetFarmerDetails extends AppCompatActivity {
 
 
                 Toast.makeText(GetFarmerDetails.this, "Response Submitted", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),FarmersList.class));
+
+                Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
 
                 finish();
             }
@@ -435,7 +438,9 @@ public class GetFarmerDetails extends AppCompatActivity {
             mAuth.signOut();
             Intent myIntent = new Intent(this, LoginAndSignUp.class);
             startActivity(myIntent);
+
             Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+            finish();
             return true;
         }
 
@@ -446,8 +451,11 @@ public class GetFarmerDetails extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent myIntent = new Intent(this, FarmersList.class);
-        startActivity(myIntent);
+
         Toast.makeText(this, "Failed to create farmer profile", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(), FarmersList.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }
