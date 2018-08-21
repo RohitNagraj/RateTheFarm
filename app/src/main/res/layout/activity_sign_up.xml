@@ -62,7 +62,7 @@
             android:layout_marginBottom="0dp"
             android:layout_marginEnd="0dp"
             android:layout_marginStart="16dp"
-            android:text="@string/page_2_wholeseller"
+            android:text="Wholesaler"
             android:textColor="@color/colorAccent"
             android:textSize="18sp" />
     </RadioGroup>
