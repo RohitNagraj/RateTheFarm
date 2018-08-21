@@ -150,11 +150,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Owns nursery:"
+                android:text="Organic: "
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scientific_suggestions" />
+                app:layout_constraintTop_toBottomOf="@+id/female_workers" />
 
             <TextView
                 android:id="@+id/apmc"
@@ -448,6 +448,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/male_workers" />
 
             <TextView
+                android:id="@+id/pesticides_used"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Pesticides Used"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/owns_nursery" />
+
+            <TextView
+                android:id="@+id/fertilizers_used"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Fertilizers Used"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pesticides_used" />
+
+            <TextView
                 android:id="@+id/other_animals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -485,7 +509,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/female_workers" />
+                app:layout_constraintTop_toBottomOf="@+id/fertilizers_used" />
 
             <Button
                 android:id="@+id/submit"
@@ -567,7 +591,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/owns_nursery" />
+                app:layout_constraintTop_toBottomOf="@+id/scientific_suggestions" />
 
         </android.support.constraint.ConstraintLayout>
 

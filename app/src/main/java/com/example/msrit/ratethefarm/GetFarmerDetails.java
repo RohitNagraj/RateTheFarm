@@ -115,6 +115,9 @@ public class GetFarmerDetails extends AppCompatActivity {
         final CheckBox cLocal = findViewById(R.id.sale_local);
         final CheckBox cAPMC = findViewById(R.id.sale_apmc);
 
+        final EditText mPesticidesUsed = findViewById(R.id.pesticides_used);
+        final EditText mFertilizersUsed = findViewById(R.id.fertilizers_used);
+
         Button mSubmitBtn = findViewById(R.id.submit);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -373,6 +376,27 @@ public class GetFarmerDetails extends AppCompatActivity {
                 if(cAPMC.isChecked()){
                     userData.setSalesAPMC(true);
                 }
+
+                if (mPesticidesUsed.getText().toString().matches("")) {
+                    mPesticidesUsed.setError("Field cannot be empty");
+                    Toast.makeText(getApplicationContext(), "Fields cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    userData.setPesticidesUsed(mPesticidesUsed.getText().toString());
+                }
+
+
+                if (mFertilizersUsed.getText().toString().matches("")) {
+                    mFertilizersUsed.setError("Field cannot be empty");
+                    Toast.makeText(getApplicationContext(), "Fields cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    userData.setFertilizersUsed(mFertilizersUsed.getText().toString());
+                }
+
+
 
                 userData.setCalculatedValues();
 

@@ -59,12 +59,13 @@
 
     <TextView
         android:id="@+id/forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
+        android:layout_width="350dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:text="@string/page_1_forgot_password"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,11 +89,12 @@
 
     <TextView
         android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="87dp"
+        android:layout_width="350dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Not Registered? Register here"
+        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
