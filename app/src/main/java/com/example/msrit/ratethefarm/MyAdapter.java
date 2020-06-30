@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class  MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private  List<UserData> UserItems;
     private Context context;
